@@ -11,7 +11,7 @@ export const metadata = {
   charset: 'UTF-8'
 }
 
-export default function RootLayout() {
+export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
@@ -29,7 +29,6 @@ export default function RootLayout() {
             <div className='m-3 text-2xl font-semibold'>Staff</div>
           </div>
         </nav>
-        <div className='m-3 text-2xl font-semibold'><Login /></div>
         {children}
       </body>
     </html>
