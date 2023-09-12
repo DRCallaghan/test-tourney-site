@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { SessionProvider } from "next-auth/react"
 import Login from './components/login'
