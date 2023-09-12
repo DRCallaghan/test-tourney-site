@@ -7,10 +7,6 @@ export const nextAuthOptions = {
         OsuProvider({
             clientId: process.env.OSU_CLIENT_ID,
             clientSecret: process.env.OSU_CLIENT_SECRET
-        }),
-        GitHubProvider({
-            clientId: process.env.GITHUB_CLIENT_ID,
-            clientSecret: process.env.GITHUB_CLIENT_SECRET
-        }),
+        })
     ]
 };
