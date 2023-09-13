@@ -1,5 +1,5 @@
 // this is the info page ONLY. found at /info
-export default function Info() {
+export default async function Info() {
     return (
         <main className="flex flex-col items-center justify-center">
             <div className="relative z-10 w-1/2 items-center justify-center">

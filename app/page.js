@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-import Link from 'next/link'
-
 // this is the home page ONLY. all other pages must be built from further directories and leafs
 export default async function Home() {
 

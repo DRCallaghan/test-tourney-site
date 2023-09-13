@@ -1,20 +1,22 @@
-import Link from 'next/link'
-import './globals.css'
-import { Inter } from 'next/font/google'
+import Link from 'next/link';
+import Image from 'next/image';
+import './globals.css';
+import { Inter } from 'next/font/google';
 import { nextAuthOptions } from './api/auth/[...nextauth]/options';
 import { getServerSession } from 'next-auth';
 
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Test Tourney Website',
   description: 'A WIP test site for an osu tournament',
   charset: 'UTF-8'
-}
+};
 
 export default async function RootLayout({ children }) {
   const session = await getServerSession(nextAuthOptions);
+  console.log(session);
 
   return (
     <html lang="en">
@@ -32,11 +34,16 @@ export default async function RootLayout({ children }) {
           {/* conditional rendering for oauth login button */}
           {session ? (
             <div className='flex flex-col m-3 text-2xl font-semibold'>
-              <div>Logged in as {session.user.name}</div>
-              <div><Link href='/'>Log Out</Link></div>
+              <Image
+                src={session.user.image}
+                alt='player profile picture'
+                width={50}
+                height={50}
+              />
+              <div><Link href='/api/auth/signout'>Log Out</Link></div>
             </div>
           ) : (
-            <div className='m-3 text-2xl font-semibold'>Not logged in.</div>
+            <div className='m-3 text-2xl font-semibold'><Link href='/api/auth/signin'>Not logged in.</Link></div>
           )}
 
         </nav>
