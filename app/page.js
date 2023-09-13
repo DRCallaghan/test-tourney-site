@@ -1,23 +1,15 @@
 import Image from 'next/image'
-import { nextAuthOptions } from './api/auth/[...nextauth]/options';
-import { getServerSession } from 'next-auth';
+
 import Link from 'next/link'
 
 // this is the home page ONLY. all other pages must be built from further directories and leafs
 export default async function Home() {
-  const session = await getServerSession(nextAuthOptions);
+
 
   return (
     <>
-      {session ? (
-        <div className='m-3 text-2xl font-semibold'>
-          Logged in as {session.user.name}
-          <Link href='/'>Log Out</Link>
-        </div>
-      ) : (
-        <div className='m-3 text-2xl font-semibold'>Not logged in.</div>
-      )}
-      <main className="flex min-h-screen flex-col items-center justify-between">
+
+      <main className="flex flex-col min-h-screen items-center justify-between">
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
             Get started by editing&nbsp;
