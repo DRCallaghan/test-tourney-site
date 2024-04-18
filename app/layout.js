@@ -31,6 +31,10 @@ export default async function RootLayout({ children }) {
           <div className='m-3 text-2xl font-semibold'>Schedules</div>
           <div className='m-3 text-2xl font-semibold'>Mappools</div>
           <div className='m-3 text-2xl font-semibold'>Staff</div>
+          {/* conditional rendering for user's team */}
+          {session ? (
+            <div className='m-3 text-2xl font-semibold'><Link href='/myteam'>My Team</Link></div>
+          ) : <></>}
           {/* conditional rendering for oauth login button */}
           {session ? (
             <div className='flex flex-col m-3 text-2xl font-semibold'>
